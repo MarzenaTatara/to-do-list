@@ -10,22 +10,6 @@
         },
     ];
 
-    const render = () => {
-        let htmlString = "";
-
-        for (const task of tasks) {
-            htmlString += `
-                <li
-                ${task.done ? " style=\"text-decoration: line-through\"" : ""}
-                >
-                  ${task.content}
-                </li>
-            `;
-        }
-
-        document.querySelector(".js-tasks").innerHTML = htmlString;
-    };
-
     const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
@@ -34,7 +18,37 @@
 
         render();
     };
- 
+
+    const remoweTask = (taskIndex) => {
+        tasks.splice(taskIndex, 1);
+        render();
+    }
+
+    const render = () => {
+        let htmlString = "";
+
+        for (const task of tasks) {
+            htmlString += `
+                <li
+                ${task.done ? " style=\"text-decoration: line-through\"" : ""}
+                >
+                <button class="js-remowe">usuń</button>
+                  ${task.content}
+                </li>
+            `;
+        }
+
+        document.querySelector(".js-tasks").innerHTML = htmlString;
+
+        const remoweButtons = document.querySelectorAll(".js-remowe");
+
+        remoweButtons.forEach((remoweButton, index) => {
+            remoweButton.addEventListener("click", () => {
+                remoweTask(index);
+            });
+        });
+    };
+
     const onFormSubmit = (event) => {
         event.preventDefault();
 
