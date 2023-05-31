@@ -28,6 +28,23 @@
         render();
     }
 
+    const bindEvents = () => {
+        const remoweButtons = document.querySelectorAll(".js-remowe");
+
+        remoweButtons.forEach((remoweButton, index) => {
+            remoweButton.addEventListener("click", () => {
+                remoweTask(index);
+            });
+        });
+
+        const toggleDoneButtons = document.querySelectorAll(".js-done");
+
+        toggleDoneButtons.forEach((toggleDoneButton, index) => {
+            toggleDoneButton.addEventListener("click", () => {
+                toggleTaskDone(index);
+            });
+        });
+    }
     const render = () => {
         let htmlString = "";
 
@@ -45,21 +62,9 @@
 
         document.querySelector(".js-tasks").innerHTML = htmlString;
 
-        const remoweButtons = document.querySelectorAll(".js-remowe");
-
-        remoweButtons.forEach((remoweButton, index) => {
-            remoweButton.addEventListener("click", () => {
-                remoweTask(index);
-            });
-        });
-        const toggleDoneButtons = document.querySelectorAll(".js-done");
-
-        toggleDoneButtons.forEach((toggleDoneButton, index) => {
-            toggleDoneButton.addEventListener("click", () => {
-                toggleTaskDone(index);
-            });
-        });
+        bindEvents();
     };
+    
     const onFormSubmit = (event) => {
         event.preventDefault();
 
@@ -70,7 +75,6 @@
         }
 
         addNewTask(newTaskContent);
-
     };
 
     const init = () => {
