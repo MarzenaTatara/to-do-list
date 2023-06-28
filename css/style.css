@@ -7,3 +7,22 @@ html {
 ::before {
     box-sizing: inherit;
 }
+
+.body {
+    background-color: rgb(232, 230, 230);
+    padding: 0 50px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.button {
+    background-color: rgb(6, 132, 98);
+}
+
+.color {
+    background-color: white;
+}
+
+.form {
+    padding: 20px;
+}
