@@ -18,7 +18,7 @@
 .button {
     background-color: teal;
     grid-area: right;
-  
+
 }
 
 .container__item {
@@ -34,8 +34,6 @@
     grid-area: aside;
     align-items: start;
     justify-content: start;
-
-
 }
 
 .container__main {
@@ -50,4 +48,24 @@
     align-items: start;
     justify-content: start;
     grid-template-rows: auto-fill;
+}
+
+.tasks {
+    list-style-type: none;
+}
+
+.js-done {
+    background-color: green;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.js-remowe {
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+   
 }
