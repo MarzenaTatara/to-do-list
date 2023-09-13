@@ -10,11 +10,12 @@
         },
     ];
 
+    const newTask = document.querySelector(".js-newTask");
     const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
         });
-
+        newTask.value = "";
         render();
     };
 
@@ -33,7 +34,7 @@
 
         remoweButtons.forEach((remoweButton, index) => {
             remoweButton.addEventListener("click", () => {
-                remoweTask(index);F
+                remoweTask(index); F
             });
         });
 
@@ -53,7 +54,9 @@
                 <li
                 ${task.done ? " style=\"text-decoration: line-through\"" : ""}
                 >
-                <button class="js-done">V</button>
+                <input class="checkbox" type="checkbox">
+                <button class="js-done"></button>
+                ${task.content}
                 <button class="js-remowe"><svg fill="#000000" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                 viewBox="0 0 380.598 380.598" xml:space="preserve">
            <g>
@@ -70,7 +73,7 @@
            </g>
            </svg>
                 </button>
-                  ${task.content}
+                 
                 </li>
             `;
         }
@@ -79,7 +82,7 @@
 
         bindEvents();
     };
-    
+
     const onFormSubmit = (event) => {
         event.preventDefault();
 
@@ -101,4 +104,5 @@
     };
 
     init();
+
 }
